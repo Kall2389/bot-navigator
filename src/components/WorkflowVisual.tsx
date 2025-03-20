@@ -2,6 +2,7 @@
 import React, { useEffect, useRef } from 'react';
 import mermaid from 'mermaid';
 import { bots } from '@/utils/botData';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 interface WorkflowVisualProps {
   className?: string;
@@ -60,10 +61,14 @@ const WorkflowVisual: React.FC<WorkflowVisualProps> = ({ className }) => {
 
   return (
     <div className={className}>
-      <h3 className="text-xl font-semibold mb-4">Federal Sales Process Flow</h3>
-      <div className="glass-card p-4 rounded-xl">
-        <div className="overflow-hidden" ref={mermaidRef}></div>
-      </div>
+      <CardHeader className="pb-0">
+        <CardTitle className="text-xl font-semibold">Federal Sales Process Flow</CardTitle>
+      </CardHeader>
+      <CardContent>
+        <div className="bg-white/90 rounded-xl shadow-sm p-6 border border-border/20">
+          <div className="overflow-hidden" ref={mermaidRef}></div>
+        </div>
+      </CardContent>
     </div>
   );
 };

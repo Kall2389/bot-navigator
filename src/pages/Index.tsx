@@ -6,6 +6,7 @@ import ChatInterface from '@/components/ChatInterface';
 import WorkflowVisual from '@/components/WorkflowVisual';
 import AccessForm from '@/components/AccessForm';
 import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
 import { ChevronRight, Zap, Shield, Clock, BarChart, MessageSquare } from 'lucide-react';
 
 const Index = () => {
@@ -14,14 +15,13 @@ const Index = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="py-20 px-4">
+      <section className="py-24 px-4 bg-gradient-to-b from-background to-secondary/10">
         <div className="container max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="space-y-8 animate-slide-up">
               <div>
                 <div className="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
-                  <Zap size={14} className="mr-1" />
-                  Expert Federal Sales Guidance
+                  <Zap size={14} className="mr-2" /> Expert Federal Sales Guidance
                 </div>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
                   Navigate Federal Sales With Confidence
@@ -32,28 +32,27 @@ const Index = () => {
               </div>
               
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button className="btn-premium">
-                  <span>Get Started</span>
-                  <ChevronRight size={16} className="ml-1" />
+                <Button size="lg" className="bg-primary text-white hover:bg-primary/90">
+                  Get Started <ChevronRight size={18} className="ml-2" />
                 </Button>
-                <Button variant="outline" className="bg-white/50">
-                  <span>Learn More</span>
+                <Button variant="outline" size="lg" className="bg-white/50">
+                  Learn More
                 </Button>
               </div>
             </div>
             
             <div className="relative animate-float lg:ml-8">
               <div className="absolute inset-0 bg-gradient-radial from-primary/5 to-transparent rounded-3xl"></div>
-              <div className="glass-card rounded-3xl shadow-premium overflow-hidden border border-white/30">
+              <Card className="overflow-hidden border border-white/30 shadow-lg">
                 <ChatInterface className="p-6" />
-              </div>
+              </Card>
             </div>
           </div>
         </div>
       </section>
       
       {/* Features Section */}
-      <section id="features" className="py-20 px-4 bg-gradient-to-b from-background to-secondary/20">
+      <section id="features" className="py-24 px-4 bg-white">
         <div className="container max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold">Comprehensive Federal Sales Support</h2>
@@ -95,24 +94,26 @@ const Index = () => {
                 description: "Receive personalized strategy documents with visual workflow diagrams and actionable recommendations."
               }
             ].map((feature, index) => (
-              <div 
+              <Card 
                 key={index}
-                className="glass-card p-6 rounded-2xl flex flex-col h-full animate-slide-up"
+                className="border border-border/20 bg-white shadow-sm transition-all hover:shadow-md"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className="rounded-full bg-primary/10 p-3 w-fit mb-4">
-                  {feature.icon}
-                </div>
-                <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
-                <p className="text-foreground/70 flex-grow">{feature.description}</p>
-              </div>
+                <CardContent className="p-6">
+                  <div className="rounded-full bg-primary/10 p-3 w-fit mb-4">
+                    {feature.icon}
+                  </div>
+                  <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
+                  <p className="text-foreground/70">{feature.description}</p>
+                </CardContent>
+              </Card>
             ))}
           </div>
         </div>
       </section>
       
       {/* Process Section */}
-      <section id="process" className="py-20 px-4">
+      <section id="process" className="py-24 px-4 bg-gradient-to-b from-secondary/10 to-white">
         <div className="container max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold">The Federal Sales Process</h2>
@@ -123,42 +124,43 @@ const Index = () => {
           
           <WorkflowVisual className="mb-16" />
           
-          <div className="glass-card rounded-2xl p-8 md:p-12">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-              <div>
-                <h3 className="text-2xl md:text-3xl font-bold mb-6">Integrated Automation</h3>
-                <p className="text-foreground/70 mb-6">
-                  Our system doesn't just provide advice—it takes action. Through integration with Make.com or Zapier, we automate document generation, create visual workflows, and deliver custom reports directly to your inbox.
-                </p>
-                <ul className="space-y-3">
-                  {['Automated Google Docs reports', 'Mermaid.js workflow visualizations', 'Email delivery of strategies', 'Zapier/Make.com integration'].map((item, index) => (
-                    <li key={index} className="flex items-start">
-                      <div className="rounded-full bg-primary/10 p-1 mr-3 mt-1">
-                        <ChevronRight size={12} className="text-primary" />
-                      </div>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
+          <Card className="border border-border/20 bg-white shadow-md">
+            <CardContent className="p-8 md:p-12">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                <div>
+                  <h3 className="text-2xl md:text-3xl font-bold mb-6">Integrated Automation</h3>
+                  <p className="text-foreground/70 mb-6">
+                    Our system doesn't just provide advice—it takes action. Through integration with Make.com or Zapier, we automate document generation, create visual workflows, and deliver custom reports directly to your inbox.
+                  </p>
+                  <ul className="space-y-3">
+                    {['Automated Google Docs reports', 'Mermaid.js workflow visualizations', 'Email delivery of strategies', 'Zapier/Make.com integration'].map((item, index) => (
+                      <li key={index} className="flex items-start">
+                        <div className="rounded-full bg-primary/10 p-1 mr-3 mt-1">
+                          <ChevronRight size={12} className="text-primary" />
+                        </div>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                
+                <div className="h-96 bg-white rounded-xl overflow-hidden border border-border/20 shadow-md">
+                  <div className="h-full w-full bg-[url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=2070')] bg-cover bg-center opacity-80"></div>
+                </div>
               </div>
-              
-              <div className="glass-card rounded-xl overflow-hidden h-96 bg-white/20 border border-border/30 shadow-premium">
-                <div className="h-full w-full bg-[url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=2070')] bg-cover bg-center opacity-70"></div>
-              </div>
-            </div>
-          </div>
+            </CardContent>
+          </Card>
         </div>
       </section>
       
       {/* Access Section */}
-      <section id="access" className="py-20 px-4 bg-gradient-to-b from-background to-secondary/30">
+      <section id="access" className="py-24 px-4 bg-white">
         <div className="container max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="space-y-8">
               <div>
                 <div className="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
-                  <Shield size={14} className="mr-1" />
-                  Exclusive Access
+                  <Shield size={14} className="mr-2" /> Exclusive Access
                 </div>
                 <h2 className="text-3xl md:text-4xl font-bold">
                   Join Our Mighty Networks Community
@@ -174,7 +176,7 @@ const Index = () => {
                     <div className="rounded-full bg-primary/10 p-1 mr-3 mt-1">
                       <ChevronRight size={16} className="text-primary" />
                     </div>
-                    <span>{benefit}</span>
+                    {benefit}
                   </div>
                 ))}
               </div>
@@ -186,18 +188,19 @@ const Index = () => {
       </section>
       
       {/* CTA Section */}
-      <section className="py-20 px-4">
+      <section className="py-24 px-4 bg-gradient-to-b from-white to-secondary/10">
         <div className="container max-w-7xl mx-auto">
-          <div className="glass-card rounded-3xl p-8 md:p-12 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Transform Your Federal Sales Approach?</h2>
-            <p className="text-xl text-foreground/70 mb-8 max-w-3xl mx-auto">
-              Join our community today to access our intelligent chatbot system and start navigating the federal sales process with confidence.
-            </p>
-            <Button className="btn-premium text-lg px-8 py-6">
-              <span>Request Access Now</span>
-              <ChevronRight size={18} className="ml-2" />
-            </Button>
-          </div>
+          <Card className="border border-border/20 bg-white shadow-lg text-center p-8 md:p-12">
+            <CardContent>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Transform Your Federal Sales Approach?</h2>
+              <p className="text-xl text-foreground/70 mb-8 max-w-3xl mx-auto">
+                Join our community today to access our intelligent chatbot system and start navigating the federal sales process with confidence.
+              </p>
+              <Button size="lg" className="bg-primary text-white hover:bg-primary/90 px-8 py-6 text-lg">
+                Request Access Now <ChevronRight size={18} className="ml-2" />
+              </Button>
+            </CardContent>
+          </Card>
         </div>
       </section>
       
