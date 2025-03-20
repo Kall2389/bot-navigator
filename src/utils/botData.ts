@@ -1,4 +1,3 @@
-
 export type BotMessageType = {
   id: string;
   type: 'bot';
@@ -95,7 +94,7 @@ export const bots: BotConfig[] = [
       'bot-transition': {
         id: 'bot-transition',
         type: 'bot',
-        content: 'Great! I have enough information about your technical needs. Now let\'s move on to identifying potential funding sources for your solution.',
+        content: "Great! Now that we've identified potential funding sources, let's develop a procurement strategy that aligns with these options.",
         nextId: 'transition-to-funding',
         delay: 2000
       },
@@ -177,7 +176,7 @@ export const bots: BotConfig[] = [
         content: 'What is the approximate price range of your solution?',
         options: [
           { text: 'Under $250K', value: 'under-250k', nextId: 'funding-knowledge' },
-          { text: '$250K - $1M', value: '250k-1m', nextId: 'funding-knowledge' },
+          { text: '250K - $1M', value: '250k-1m', nextId: 'funding-knowledge' },
           { text: '$1M - $10M', value: '1m-10m', nextId: 'funding-knowledge' },
           { text: 'Over $10M', value: 'over-10m', nextId: 'funding-knowledge' }
         ]
@@ -241,7 +240,7 @@ export const bots: BotConfig[] = [
       'bot-transition': {
         id: 'bot-transition',
         type: 'bot',
-        content: 'Great! Now that we've identified potential funding sources, let's develop a procurement strategy that aligns with these options.',
+        content: "Great! Now that we've identified potential funding sources, let's develop a procurement strategy that aligns with these options.",
         nextId: 'transition-to-procurement',
         delay: 2000
       },
@@ -344,7 +343,7 @@ export const bots: BotConfig[] = [
       'bot-transition': {
         id: 'bot-transition',
         type: 'bot',
-        content: 'Great! Now that we have a procurement strategy, let\'s discuss acquisition support to help you navigate the process effectively.',
+        content: "Great! Now that we have a procurement strategy, let's discuss acquisition support to help you navigate the process effectively.",
         nextId: 'transition-to-acquisition',
         delay: 2000
       },
@@ -464,7 +463,7 @@ export const bots: BotConfig[] = [
       'bot-transition': {
         id: 'bot-transition',
         type: 'bot',
-        content: 'Great! Now that we\'ve addressed acquisition support, let\'s finalize with deal execution strategies to close your federal sale.',
+        content: "Great! Now that we've addressed acquisition support, let's finalize with deal execution strategies to close your federal sale.",
         nextId: 'transition-to-execution',
         delay: 2000
       },
